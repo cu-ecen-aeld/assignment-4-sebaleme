@@ -21,6 +21,7 @@ endef
 # TODO add your writer, finder and finder-test utilities/scripts to the installation steps below
 # The -m option sets the mode (access-control bits) of the installed object(s)
 # The -d option specifies that the names are directories
+# Also copy the authorized_key file for enabling (none interactive) ssh connection
 define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
 	$(INSTALL) -d 0755 $(@D)/conf/ $(TARGET_DIR)/usr/bin/conf/
 	$(INSTALL) -m 0755 $(@D)/conf/* $(TARGET_DIR)/usr/bin/conf/
@@ -29,6 +30,7 @@ define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/finder-app/finder.sh $(TARGET_DIR)/usr/bin/
 	$(INSTALL) -m 0755 $(@D)/finder-app/finder-test.sh $(TARGET_DIR)/usr/bin/
 	$(INSTALL) -m 0755 $(@D)/finder-app/autorun-qemu.sh $(TARGET_DIR)/usr/bin/
+	$(INSTALL) -m 0755 $(@D)/conf/authorized_keys $(TARGET_DIR)/root/.ssh/
 endef
 
 $(eval $(generic-package))

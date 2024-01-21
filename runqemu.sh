@@ -5,6 +5,7 @@
 
 # Use ssh -p 10022 root@localhost to connect to the QEMU session
 # Use scp -P 10022 root@localhost:/ (from the host, I could not make it work from QEMU)
+# If you want to exit the qemu session, do ctrl+a then c to enter the qemu prompt, qnd then q
 qemu-system-aarch64 \
     -M virt  \
     -cpu cortex-a53 -nographic -smp 1 \
