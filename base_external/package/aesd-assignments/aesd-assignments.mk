@@ -30,7 +30,8 @@ define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/finder-app/finder.sh $(TARGET_DIR)/usr/bin/
 	$(INSTALL) -m 0755 $(@D)/finder-app/finder-test.sh $(TARGET_DIR)/usr/bin/
 	$(INSTALL) -m 0755 $(@D)/finder-app/autorun-qemu.sh $(TARGET_DIR)/usr/bin/
-	$(INSTALL) -m 0755 $(@D)/conf/authorized_keys $(TARGET_DIR)/root/.ssh/
+	mkdir -p $(TARGET_DIR)/root/.ssh/
+	$(INSTALL) -m 0755 $(TARGET_DIR)/../../../conf/authorized_keys $(TARGET_DIR)/root/.ssh/
 endef
 
 $(eval $(generic-package))
